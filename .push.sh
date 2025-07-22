@@ -1,14 +1,21 @@
 #!/bin/bash
 
 while true; do
-  timestamp=$(date "+%Y-%m-%d %H:%M:%S")
+  sleep 300  # Wait 5 minutes
 
-  git add .
+  # Check if there are any changes (unstaged or staged)
+  if git status --porcelain | grep . > /dev/null; then
+    timestamp=$(date "+%Y-%m-%d %H:%M:%S")
+    commit_message="${1:-Auto commit at $timestamp}"
 
-  git commit -m "Auto commit at $timestamp" 2>/dev/null
+    git add .
 
-  git push
+    git commit -m "$commit_message" 2>/dev/null
 
-  echo "Pushed at $timestamp. Next in 5 minutes..."
-  sleep 300
+    git push
+
+    echo "Pushed: $commit_message"
+  else
+    echo "No changes to commit at $(date)."
+  fi
 done
