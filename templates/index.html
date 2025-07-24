@@ -8,22 +8,50 @@
   </head>
   <body class="flex flex-col sm:flex-row h-screen items-center justify-center bg-zinc-900">
 
+    <!-- Image Container -->
     <div class="border border-red-500 text-white w-full h-full">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS9tsHvdgu068QOmbp87LUVsOSeScs7Zo5Jd1bI1SHYO_PsBRx3khxJC5bhCAU93o9OLc&usqp=CAU">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS9tsHvdgu068QOmbp87LUVsOSeScs7Zo5Jd1bI1SHYO_PsBRx3khxJC5bhCAU93o9OLc&usqp=CAU"
+        alt="Image"
+      />
     </div>
 
+    <!-- Form Container -->
     <div class="font-bold text-black p-8 h-full flex items-center justify-center">
-      <form class="flex flex-col border border-5 p-5">
-        <input type="text" autofocus name="input" autocomplete="off">
-        <button id="hello" type="submit" class="bg-blue-500">Submit</button>
+      <form class="flex gap-4 flex-col p-5 items-center">
+        <input
+          type="text"
+          name="input"
+          autofocus
+          autocomplete="off"
+          placeholder="Type"
+          class="rounded-md px-4 py-2 w-64
+                 bg-zinc-800 text-white
+                 border border-zinc-600
+                 focus:outline-none focus:ring-2 focus:ring-blue-400
+                 transition duration-300"
+        />
+
+        <button
+          id="hello"
+          type="submit"
+          class="bg-blue-600 rounded-full p-2 text-xl w-1/2
+                 transform hover:scale-105 active:scale-95
+                 transition-transform duration-500 active:duration-75
+                 hover:bg-blue-500/90"
+        >
+          Submit
+        </button>
       </form>
     </div>
 
+    <!-- Debugging Script -->
     <script>
       window.onload = () => {
         const pos = document.getElementById("hello").getBoundingClientRect();
         console.log(pos);
       };
     </script>
-</body>
+
+  </body>
 </html>
