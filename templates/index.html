@@ -3,12 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Home</title>
   </head>
-  <body class="flex h-screen items-center justify-center bg-zinc-900">
-    <div class="text-3xl font-bold text-white p-8 bg-blue-500 rounded-full">
-      <p>Hello world!</p>
+  <body class="flex flex-col sm:flex-row h-screen items-center justify-center bg-zinc-900">
+
+    <div class="border border-red-500 text-white w-full h-full">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS9tsHvdgu068QOmbp87LUVsOSeScs7Zo5Jd1bI1SHYO_PsBRx3khxJC5bhCAU93o9OLc&usqp=CAU">
     </div>
-  </body>
+
+    <div class="font-bold text-black p-8 h-full flex items-center justify-center">
+      <form class="flex flex-col border border-5 p-5">
+        <input type="text" autofocus name="input" autocomplete="off">
+        <button id="hello" type="submit" class="bg-blue-500">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      window.onload = () => {
+        const pos = document.getElementById("hello").getBoundingClientRect();
+        console.log(pos);
+      };
+    </script>
+</body>
 </html>
