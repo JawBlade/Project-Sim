@@ -16,34 +16,32 @@
       />
     </div>
 
-    <!-- Form Container -->
-    <div class="font-bold text-black p-8 h-full flex items-center justify-center">
-      <form class="flex gap-4 flex-col p-5 items-center">
-        <input
-          type="text"
-          name="input"
-          autofocus
-          autocomplete="off"
-          placeholder="Type"
-          class="rounded-md px-4 py-2 w-64
-                 bg-zinc-800 text-white
-                 border border-zinc-600
-                 focus:outline-none focus:ring-2 focus:ring-blue-400
-                 transition duration-300"
-        />
+    <!-- Chat UI Container -->
+      <div class="bg-zinc-800 border border-zinc-600 rounded-xl p-4 w-full h-full max-w-sm h-[36rem] flex flex-col justify-between">
 
-        <button
-          id="hello"
-          type="submit"
-          class="bg-blue-600 rounded-full p-2 text-xl w-1/2
-                 transform hover:scale-105 active:scale-95
-                 transition-transform duration-500 active:duration-75
-                 hover:bg-blue-500/90"
-        >
-          Submit
-        </button>
-      </form>
-    </div>
+        <!-- Chat messages area -->
+        <div class="bg-zinc-900 rounded-md p-4 h-4/5 overflow-y-auto text-white border border-zinc-700">
+          <!-- Future messages will go here -->
+        </div>
+
+        <!-- Input and Button -->
+        <form class="mt-4 flex gap-2">
+          <input
+            type="text"
+            name="input"
+            placeholder="Type"
+            autocomplete="off"
+            class="flex-1 rounded-md px-4 py-2 bg-zinc-700 text-white border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300"
+          />
+          <button
+            type="submit"
+            class="bg-blue-600 rounded-md px-4 py-2 text-white font-semibold hover:bg-blue-500/90 transform hover:scale-105 active:scale-95 transition duration-200"
+          >
+            Send
+          </button>
+        </form>
+
+      </div>
 
     <!-- Debugging Script -->
     <script>
