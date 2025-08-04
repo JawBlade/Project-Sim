@@ -4,40 +4,79 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Home</title>
+    <title>Virtual Classroom Assistant</title>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("chat-form");
+        const input = document.querySelector("input[name='input']");
+        const messagesDiv = document.getElementById("messages");
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const message = input.value.trim();
+          if (!message) return;
+
+          messagesDiv.innerHTML += `
+            <div class="mb-2 text-right">
+              <span class="bg-blue-700 text-white px-3 py-1 rounded-lg inline-block">${message}</span>
+            </div>`;
+          input.value = "";
+
+          try {
+            const res = await fetch("/chat", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ message }),
+            });
+
+            const data = await res.json();
+
+            messagesDiv.innerHTML += `
+              <div class="mb-2 text-left">
+                <span class="bg-zinc-700 text-white px-3 py-1 rounded-lg inline-block">${data.response}</span>
+              </div>`;
+
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+          } catch (err) {
+            messagesDiv.innerHTML += `
+              <div class="mb-2 text-left">
+                <span class="bg-red-700 text-white px-3 py-1 rounded-lg inline-block">Something went wrong. Try again later.</span>
+              </div>`;
+          }
+        });
+      });
+    </script>
   </head>
-  <body class="flex flex-col sm:flex-row h-screen items-center justify-center bg-zinc-900">
+  <body class="flex flex-col md:flex-row h-screen bg-zinc-900 text-white">
 
     <!-- Image Container -->
-    <div class="text-white w-full h-full">
-      <div class="w-full h-full overflow-hidden">
-      <img src="../static/images/Classroom.png" alt="Image" class="w-full h-full object-cover"/>
-</div>
-
+    <div class="w-full md:w-2/3 h-1/2 md:h-full overflow-hidden">
+      <img src="../static/images/Classroom.png" alt="Classroom" class="w-full h-full object-contain"/>
     </div>
 
     <!-- Chat UI Container -->
-      <div class="bg-zinc-800 border border-zinc-600 rounded-xl p-4 w-full h-full sm:max-w-sm h-[36rem] flex flex-col justify-between">
+    <div class="bg-zinc-800 border border-zinc-600 rounded-xl p-4 w-full md:w-1/3 h-full flex flex-col justify-between">
 
-        <!-- Chat messages area -->
-        <div class="bg-zinc-900 rounded-md p-4 h-4/5 overflow-y-auto text-white border border-zinc-700">
-          <!-- Future messages will go here -->
-        </div>
-
-        <!-- Input and Button -->
-        <form class="mt-4 flex gap-2">
-          <input type="text" name="input" placeholder="Type" autocomplete="off" 
-          class="flex-1 rounded-md px-4 py-2 bg-zinc-700 text-white 
-          border border-zinc-600 focus:outline-none 
-          focus:ring-2 focus:ring-blue-400 transition duration-300"/>
-          <button
-            type="submit"
-            class="bg-blue-600 rounded-md px-4 py-2 text-white font-semibold hover:bg-blue-500/90 transform hover:scale-105 active:scale-95 transition duration-200"
-          >
-            Send
-          </button>
-        </form>
-
+      <!-- Chat messages area -->
+      <div id="messages" class="bg-zinc-900 rounded-md p-4 h-4/5 overflow-y-auto text-white border border-zinc-700">
+        <!-- Messages will appear here -->
       </div>
+
+      <!-- Input and Button -->
+      <form id="chat-form" class="mt-4 flex gap-2">
+        <input type="text" name="input" placeholder="Ask about the classroom..." autocomplete="off"
+          class="flex-1 rounded-md px-4 py-2 bg-zinc-700 text-white border border-zinc-600 
+          focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300"/>
+        <button
+          type="submit"
+          class="bg-blue-600 rounded-md px-4 py-2 text-white font-semibold 
+          hover:bg-blue-500 transform hover:scale-105 active:scale-95 transition duration-200"
+        >
+          Send
+        </button>
+      </form>
+
+    </div>
   </body>
 </html>
