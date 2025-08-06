@@ -2,7 +2,8 @@ import os
 from flask import Flask, render_template, request, jsonify
 import openai
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv(
+    "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")
 
 app = Flask(__name__)
 
@@ -24,7 +25,7 @@ def chat():
 
     try:
         response = openai.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-3.5-turbo",
             messages=[
                 {
                     "role": "system",
