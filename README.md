@@ -58,7 +58,7 @@ While the core logic and design of the project are my own, I used ChatGPT as a h
 
 ### OR
 
-go to [https//:](https://project-sim.onrender.com/)
+go [here](https://project-sim.onrender.com/)
 
 ---
 
