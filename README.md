@@ -6,7 +6,7 @@
 
 ### Description
 
-Project Sim is a web-based AI assistant designed to help users interact with a virtual classroom environment. Built with Flask and integrated with OpenAI’s API it allows users to type questions or commands and receive intelligent responses, simulating a helpful classroom guide.
+Project Sim is a web-based AI assistant designed to help users interact with a virtual classroom environment. The way you ask question is something like: "What is number 4" or just ask about the numbers in general. Flask should take care of what the numbers should mean. Built with Flask and integrated with OpenAI’s API it allows users to type questions or commands and receive intelligent responses, simulating a helpful classroom guide.
 
 The app features a simple and responsive user interface using Tailwind CSS, enabling smooth interaction on both desktop and mobile devices. Users can input text, submit queries, and get dynamic AI-generated answers displayed on the page, along with natural voice output powered by Eleven Labs. This project demonstrates the integration of modern web development techniques with natural language processing and speech synthesis.
 
