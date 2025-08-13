@@ -6,7 +6,7 @@
 
 ### Description
 
-Project Sim is a web-based AI assistant designed to help users interact with a virtual classroom environment. Built with Flask and integrated with OpenAI’s API and Eleven Labs’ text-to-speech, it allows users to type questions or commands and receive intelligent responses, simulating a helpful classroom guide.
+Project Sim is a web-based AI assistant designed to help users interact with a virtual classroom environment. Built with Flask and integrated with OpenAI’s API it allows users to type questions or commands and receive intelligent responses, simulating a helpful classroom guide.
 
 The app features a simple and responsive user interface using Tailwind CSS, enabling smooth interaction on both desktop and mobile devices. Users can input text, submit queries, and get dynamic AI-generated answers displayed on the page, along with natural voice output powered by Eleven Labs. This project demonstrates the integration of modern web development techniques with natural language processing and speech synthesis.
 
@@ -16,11 +16,9 @@ The app features a simple and responsive user interface using Tailwind CSS, enab
 
 - Flask backend serving the web app and handling API requests.
 - Integration with OpenAI API for natural language processing.
-- Text-to-speech functionality using Eleven Labs API for voice responses.
 - Responsive UI styled with Tailwind CSS.
 - Input form with smooth animations and user-friendly design.
 - Easy deployment configuration for cloud hosting (Render.com).
-- Designed with scalability in mind to add more interactive classroom elements.
 
 ---
 
@@ -37,7 +35,7 @@ The app features a simple and responsive user interface using Tailwind CSS, enab
 
 ### Design Choices & Challenges
 
-I chose Flask for its simplicity and flexibility as a backend framework, which fits well with my goal to quickly prototype a web app. The use of OpenAI’s API allowed me to leverage state-of-the-art AI language understanding without building complex NLP models myself. Integrating Eleven Labs enabled natural voice output, enhancing the user experience.
+I chose Flask for its simplicity, familiarity and flexibility as a backend framework, which fits well with my goal to quickly prototype a web app. The use of OpenAI’s API allowed me to leverage state-of-the-art AI language understanding without building complex NLP models myself.
 
 One challenge was designing a clean and responsive UI that works well on different screen sizes. Tailwind CSS made this easier with its utility-first classes. Another challenge was managing asynchronous communication with the AI and Eleven Labs APIs and updating the frontend dynamically, which I addressed using Flask routes and Jinja templating.
 
@@ -57,6 +55,10 @@ While the core logic and design of the project are my own, I used ChatGPT as a h
 4. Install dependencies: `pip install -r requirements.txt`
 5. Run the app: `flask run`
 6. Open `http://127.0.0.1:5000` in your browser
+
+### OR
+
+go to [https//:](https://project-sim.onrender.com/)
 
 ---
 
