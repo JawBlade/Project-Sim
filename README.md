@@ -1,6 +1,6 @@
 # Project Sim: AI Classroom Assistant
 
-#### Video Demo: <INSERT_YOUTUBE_VIDEO_URL_HERE>
+#### Video Demo: [Click here](https://youtu.be/57qSG2-cOlE)
 
 ---
 
